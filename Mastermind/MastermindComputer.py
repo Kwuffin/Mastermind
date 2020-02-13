@@ -1,5 +1,3 @@
-import random
-
 antwoord = []
 for i in range(0, 4):
     antwoordIn = input("Geef vier kleuren (getallen 1-6).")
@@ -29,9 +27,18 @@ def mogelijkheden(): #works
     return mList
 
 
-def guess():
+def feedback():
+    if guess(mogelijkheden()) == antwoord:
+        print("Geraden")
 
 
-#def feedback():
+def guess(mogelijkheden):
+    guesses = 0
+    if guesses == 0:
+        return mogelijkheden[0]
+
+
 
 print(mogelijkheden())
+print(guess(mogelijkheden()))
+feedback(guess(mogelijkheden()))
