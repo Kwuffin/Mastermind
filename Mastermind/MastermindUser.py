@@ -6,7 +6,22 @@ for i in range(0, 4):
     antwoord.append(a)
     print(antwoord)
 
-def userInput():
+def feedback():
+    counter == 0
+    j = userInput[counter]
+    for i in antwoord:
+
+            p = antwoord.index(i)
+            p2 = userInput.index(j)
+            if p == p2:
+                print("II")
+            elif p != p2 and j == i:
+                print("I")
+            else:
+                print("O")
+
+
+while True:
     userInput = []
     counter = 0
     for i in range(0, 4):
@@ -19,15 +34,10 @@ def userInput():
         userInput.append(a)
         counter += 1
 
-
     if counter == 4:
+        feedback()
         print("----------------------")
-
 
     if userInput == antwoord:
         print("Je hebt het geraden!")
-        return True
-    return False
-
-while userInput() == False:
-    userInput()
+        break
