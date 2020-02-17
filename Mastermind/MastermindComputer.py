@@ -31,26 +31,35 @@ def guess(mogelijkheden): #In progress
     guesses = 0
     if guesses == 0:
         return mogelijkheden[0]
+    else:
+        return mogelijkheden[0] #Uhhh... ?????
+
 
 
 def feedback(): #Needs to be worked on / In progress
     fb = "None"
+    fb2 = "None"
+    counter = 0
     if guess(mogelijkheden()) == antwoord:
         print("Geraden")
     else:
-        for i in guess(mogelijkheden()):
-            indxi = guess(mogelijkheden()).index(i)
-            for j in antwoord:
-                indxj = antwoord.index(j)
-                if indxi == indxj:
-                    print("Witte pin")
-                    fb = "White"
-                elif i == j and indxi != indxj:
-                    print("Zwarte pin")
-                    fb = "Black"
-                else:
-                    print("Geen pin")
-    return fb
+        for a in range(0, 2):
+            counter += 1
+            if counter == 1:
+                for i in guess(mogelijkheden()):
+                    if i in antwoord:
+                        fb = "White"
+                        for j in antwoord:
+                            if i == j:
+                                fb = "Black"
+            elif counter == 2:
+                for i in guess(mogelijkheden()):
+                    if i in antwoord:
+                        fb2 = "White"
+                        for j in antwoord:
+                            if i == j:
+                                fb2 = "Black"
+    return fb, fb2
 
 
 
