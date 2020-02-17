@@ -6,7 +6,7 @@ for i in range(0, 4):
 print(antwoord)
 
 
-def mogelijkheden(): #works
+def mogelijkheden(): #finished
     mList = []
     list = [0, 0, 0, 0]
     for i in range(0, 6):
@@ -27,17 +27,34 @@ def mogelijkheden(): #works
     return mList
 
 
-def guess(mogelijkheden):
+def guess(mogelijkheden): #In progress
     guesses = 0
     if guesses == 0:
         return mogelijkheden[0]
 
 
-def feedback():
+def feedback(): #Needs to be worked on / In progress
+    fb = "None"
     if guess(mogelijkheden()) == antwoord:
         print("Geraden")
+    else:
+        for i in guess(mogelijkheden()):
+            indxi = guess(mogelijkheden()).index(i)
+            for j in antwoord:
+                indxj = antwoord.index(j)
+                if indxi == indxj:
+                    print("Witte pin")
+                    fb = "White"
+                elif i == j and indxi != indxj:
+                    print("Zwarte pin")
+                    fb = "Black"
+                else:
+                    print("Geen pin")
+    return fb
+
+
 
 
 print(mogelijkheden())
 print(guess(mogelijkheden()))
-feedback()
+print(feedback())
