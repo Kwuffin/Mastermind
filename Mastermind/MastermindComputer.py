@@ -3,7 +3,7 @@ for i in range(0, 4):
     antwoordIn = input("Geef vier kleuren (getallen 1-6).")
     antwoordIn = int(antwoordIn)
     antwoord.append(antwoordIn)
-print(antwoord)
+print(antwoord, "Secret")
 
 
 def mogelijkheden(): #finished
@@ -36,7 +36,7 @@ def guess(mogelijkheden): #In progress
 
 
 
-def feedback(): #Needs to be worked on / In progress
+def feedback(): #Works
     fb = [0, 0, 0, 0] # '0' = geen kleuren / '1' = witte pin (juiste kleur, verkeerde plek) / '2' = zwarte pin (juiste kleur, juiste plek)
     if guess(mogelijkheden()) == antwoord:
         print("Geraden")
@@ -63,11 +63,11 @@ def feedback(): #Needs to be worked on / In progress
                 if antwoord[3] == i:
                     fb[3] = 2
                 else:
-                    fb[3] = 2
+                    fb[3] = 1
     return fb
 
 
 
 mogelijkheden()
-print(guess(mogelijkheden()))
-print(feedback())
+print(guess(mogelijkheden()), "Current guess")
+print(feedback(), "0 = No pins / 1 = Correct colour, wrong place / 2 = Correct colour, correct place / Feedback")
