@@ -6,6 +6,7 @@ for i in range(0, 4):
     antwoord.append(a)
     print(antwoord)
 
+
 def feedback():
     counter == 0
     j = userInput[counter]
