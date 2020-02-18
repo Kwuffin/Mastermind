@@ -37,29 +37,21 @@ def guess(mogelijkheden): #In progress
 
 
 def feedback(): #Needs to be worked on / In progress
-    fb = "None"
-    fb2 = "None"
-    counter = 0
+    fb = [] # '0' = geen kleuren / '1' = witte pin (juiste kleur, verkeerde plek) / '2' = zwarte pin (juiste kleur, juiste plek)
     if guess(mogelijkheden()) == antwoord:
         print("Geraden")
     else:
-        for a in range(0, 2):
-            counter += 1
-            if counter == 1:
-                for i in guess(mogelijkheden()):
-                    if i in antwoord:
-                        fb = "White"
-                        for j in antwoord:
-                            if i == j:
-                                fb = "Black"
-            elif counter == 2:
-                for i in guess(mogelijkheden()):
-                    if i in antwoord:
-                        fb2 = "White"
-                        for j in antwoord:
-                            if i == j:
-                                fb2 = "Black"
-    return fb, fb2
+        for i in guess(mogelijkheden()):
+            if i in antwoord:
+                fb.append(1)
+                for j in antwoord:
+                    if i == j:
+                        fb.append(2)
+            else:
+                fb.append(0)
+    return fb
+
+def listremove():
 
 
 
