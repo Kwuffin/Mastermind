@@ -30,9 +30,12 @@ def mogelijkheden(): #finished
 def guess(mogelijkheden): #In progress
     guesses = 0
     if guesses == 0:
-        return mogelijkheden[0]
+        guesses += 1
+        return [3, 3, 4, 4]
     else:
-        return mogelijkheden[0] #Uhhh... ?????
+        guesses += 1
+        return mogelijkheden[0]
+
 
 
 
