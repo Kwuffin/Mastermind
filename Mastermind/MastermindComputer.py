@@ -1,9 +1,10 @@
 antwoord = []
+print("-------------------------   --= < ( M A S T E R M I N D ) > =--   -------------------------")
 for i in range(0, 4):
-    antwoordIn = input("Geef vier kleuren (getallen 1-6).")
+    antwoordIn = input("Geef een kleur (getallen 1-6): ")
     antwoordIn = int(antwoordIn)
     antwoord.append(antwoordIn)
-print(antwoord, "Secret")
+print("-------------------------------------------------------------------------------------------\n", antwoord, "is je secret\n-------------------------------------------------------------------------------------------")
 
 
 def mogelijkheden():
@@ -40,8 +41,9 @@ def guess(mogelijkheden):
 def feedback(guess):
     fb = [0, 0, 0, 0] # '0' = geen kleuren / '1' = witte pin (juiste kleur, verkeerde plek) / '2' = zwarte pin (juiste kleur, juiste plek)
     if guess == antwoord:
-        print("Geraden")
+        print("De computer heeft de secret geraden!")
     else:
+        print("antwoord:", antwoord)
         counter = 0
         for i in guess:
             counter += 1
@@ -70,5 +72,4 @@ def feedback(guess):
 
 mogelijkheden()
 print(guess(mogelijkheden()), "Current guess")
-
 print(feedback(guess(mogelijkheden())), "0 = No pins / 1 = Correct colour, wrong place / 2 = Correct colour, correct place / Feedback")
