@@ -6,7 +6,7 @@ for i in range(0, 4):
 print(antwoord, "Secret")
 
 
-def mogelijkheden(): #finished
+def mogelijkheden():
     mList = []
     list = [0, 0, 0, 0]
     for i in range(0, 6):
@@ -27,7 +27,7 @@ def mogelijkheden(): #finished
     return mList
 
 
-def guess(mogelijkheden): #In progress
+def guess(mogelijkheden):
     guesses = 0
     if guesses == 0:
         guesses += 1
@@ -37,15 +37,13 @@ def guess(mogelijkheden): #In progress
         return mogelijkheden[0]
 
 
-
-
-def feedback(): #Works
+def feedback(guess):
     fb = [0, 0, 0, 0] # '0' = geen kleuren / '1' = witte pin (juiste kleur, verkeerde plek) / '2' = zwarte pin (juiste kleur, juiste plek)
-    if guess(mogelijkheden()) == antwoord:
+    if guess == antwoord:
         print("Geraden")
     else:
         counter = 0
-        for i in guess(mogelijkheden()):
+        for i in guess:
             counter += 1
             if i in antwoord and counter == 1:
                 if antwoord[0] == i:
@@ -70,7 +68,7 @@ def feedback(): #Works
     return fb
 
 
-
 mogelijkheden()
 print(guess(mogelijkheden()), "Current guess")
-print(feedback(), "0 = No pins / 1 = Correct colour, wrong place / 2 = Correct colour, correct place / Feedback")
+
+print(feedback(guess(mogelijkheden())), "0 = No pins / 1 = Correct colour, wrong place / 2 = Correct colour, correct place / Feedback")
