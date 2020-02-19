@@ -43,7 +43,6 @@ def feedback(guess):
     if guess == antwoord:
         print("De computer heeft de secret geraden!")
     else:
-        print("antwoord:", antwoord)
         counter = 0
         for i in guess:
             counter += 1
@@ -71,5 +70,5 @@ def feedback(guess):
 
 
 mogelijkheden()
-print(guess(mogelijkheden()), "Current guess")
-print(feedback(guess(mogelijkheden())), "0 = No pins / 1 = Correct colour, wrong place / 2 = Correct colour, correct place / Feedback")
+print(guess(mogelijkheden()), "computergok.")
+print(feedback(guess(mogelijkheden())), "0 = Geen pins / 1 = Juiste kleur op de verkeerde plaats / 2 = Juiste kleur op de juiste plek / Feedback")
