@@ -1,12 +1,3 @@
-antwoord = []
-print("-------------------------   --= < ( M A S T E R M I N D ) > =--   -------------------------")
-for i in range(0, 4):
-    antwoordIn = input("Geef een kleur (getallen 1-6): ")
-    antwoordIn = int(antwoordIn)
-    antwoord.append(antwoordIn)
-print("-------------------------------------------------------------------------------------------\n", antwoord, "is je secret\n-------------------------------------------------------------------------------------------")
-
-
 def mogelijkheden():
     mList = []
     list = [0, 0, 0, 0]
@@ -43,30 +34,23 @@ def feedback(guess):
     if guess == antwoord:
         print("De computer heeft de secret geraden!")
     else:
-        counter = 0
         for i in guess:
-            counter += 1
-            if i in antwoord and counter == 1:
-                if antwoord[0] == i:
-                    fb[0] = 2
-                else:
-                    fb[0] = 1
-            elif i in antwoord and counter == 2:
-                if antwoord[1] == i:
-                    fb[1] = 2
-                else:
-                    fb[1] = 1
-            elif i in antwoord and counter == 3:
-                if antwoord[2] == i:
-                    fb[2] = 2
-                else:
-                    fb[2] = 1
-            elif i in antwoord and counter == 4:
-                if antwoord[3] == i:
-                    fb[3] = 2
-                else:
-                    fb[3] = 1
+            for j in range(0,4):
+                if i in antwoord:
+                    if antwoord[j] == i:
+                        fb[j] = 2
+                    else:
+                        fb[j] = 1
     return fb
+
+
+antwoord = []
+print("-------------------------   --= < ( M A S T E R M I N D ) > =--   -------------------------")
+for i in range(0, 4):
+    antwoordIn = input("Geef een kleur (getallen 1-6): ")
+    antwoordIn = int(antwoordIn)
+    antwoord.append(antwoordIn)
+print("-------------------------------------------------------------------------------------------\n", antwoord, "is je secret\n-------------------------------------------------------------------------------------------")
 
 
 mogelijkheden()
