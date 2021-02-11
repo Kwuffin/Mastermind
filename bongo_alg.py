@@ -13,8 +13,7 @@ def bogo_algorithm(answer):
 
     :param answer: Secret code
     """
-    possibilities = list(permutations([1, 2, 3, 4, 5, 6], 4))
-
+    possibilities = [list(lst) for lst in permutations([1, 2, 3, 4, 5, 6], 4)]
     correct = False
 
     count = 0
