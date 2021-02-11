@@ -1,56 +1,17 @@
 import numpy as np
 from simple_alg import simple_algorithm
-from bongo_alg import bongo_algorithm
-from feedback import evaluate
+from bongo_alg import bogo_algorithm
+from user_play import user_guess
 
 
-def user_guess(ans):
-    print(ans)
-    # Counts amount of guesses
-    count = 0
+def comp_user_choice():
+    """
+    Asks the user if the computer or user guesses.
 
-    correct = False
-    while not correct:
-        guess = []
-        count += 1
+    :return: String "j" or "n"
+    """
 
-        for _ in range(4):
-            valid = False  # True if the given number is between 1 and 6
-
-            while not valid:
-                try:
-                    guess_num = int(input("Geef een getal\n> "))
-
-                    if 1 <= guess_num <= 6:
-                        valid = True
-
-                    else:
-                        print("Ongeldig getal, voer een getal in van 1 tot 6")
-
-                except ValueError:
-                    print("Geen geldige invoer, voer een getal in (0-6)")
-
-            guess.append(guess_num)
-
-        print(f"\nJouw gok: {guess}")
-
-        black, white = evaluate(ans, guess)
-
-        print(f"Feedback:\n"
-              f"{black} zwarte pin(s)\n"
-              f"{white} witte pin(s)\n")
-
-        if black == 4:
-            correct = True
-
-    if count > 1:
-        print(f"Gefeliciteerd! Je hebt de code geraden in {count} gokken!")
-    else:
-        print(f"Gefeliciteerd! Je hebt de code geraden in één gok!")
-
-
-def menu():
-    userIn = False
+    userIn = False  # User Input is valid
     while not userIn:
         user_computer = input("Wil je de computer laten raden? (J/N)\n> ")
         if user_computer.lower() == "j" or user_computer.lower() == "n":
@@ -62,7 +23,7 @@ def menu():
 
 
 def main():
-    user_input = menu()
+    user_input = comp_user_choice()
 
     # If user wants to guess
     if user_input == "n":
@@ -71,15 +32,16 @@ def main():
 
     # If computer wants to guess
     else:
-        alg_choice_valid = False
+        alg_choice_valid = False  # User input is valid
         while not alg_choice_valid:
             try:
                 algorithm_choice = int(input("Welk algoritme wil je gebruiken?\n"
                                              "1. Simple algorithm\n"
-                                             "2. Bongo algorithm\n"
+                                             "2. Bogo algorithm\n"
+                                             "3. Exit\n"
                                              "> "))
 
-                if 1 <= algorithm_choice < 3:
+                if 1 <= algorithm_choice < 4:
                     alg_choice_valid = True
 
                 else:
@@ -109,11 +71,17 @@ def main():
 
         print(f"Je secret: {answer}")
 
+        # Selected simple algorithm
         if algorithm_choice == 1:
             simple_algorithm(answer)
 
+        # Selected bogo algorithm
         elif algorithm_choice == 2:
-            bongo_algorithm(answer)
+            bogo_algorithm(answer)
+
+        # Exit
+        elif algorithm_choice == 3:
+            exit()
 
 
 if __name__ == '__main__':
