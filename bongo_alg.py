@@ -10,12 +10,16 @@ def bogo_algorithm(answer):
 
     Het originele bogo algoritme blijft willekeurig willekeurig gokken
     totdat de uitkomst goed is. Dit algoritme wordt ook wel random sort genoemd.
+    Dit algoritme filtert geen gebruikte combinaties.
+    https://en.wikipedia.org/wiki/Bogosort
 
     :param answer: Secret code
     """
-    possibilities = [list(lst) for lst in permutations([1, 2, 3, 4, 5, 6], 4)]
-    correct = False
 
+    # Make lists out of tuples in order [1, 2, 3, 4], [1, 2, 3, 5], [1, 2, 3, 6], ... [6, 5, 4, 3]
+    possibilities = [list(lst) for lst in permutations([1, 2, 3, 4, 5, 6], 4)]
+
+    correct = False
     count = 0
     while not correct:
         # Guesses a random guess

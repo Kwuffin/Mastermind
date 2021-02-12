@@ -18,7 +18,6 @@ def simple_algorithm(answer):
                     possibilities.append([i, j, k, m])
 
     correct = False
-
     count = 0
     while not correct:
         # Guesses the first possible guess in the sorted list of possibilities
@@ -34,7 +33,7 @@ def simple_algorithm(answer):
         if black == 4:
             correct = True
 
-        # Eliminates possibilities
+        # Eliminate possibilities
         new_pos = []
         for possibility in possibilities:
             if evaluate(possibility, guess) == (black, white):

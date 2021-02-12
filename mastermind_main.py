@@ -2,6 +2,7 @@ import numpy as np
 from simple_alg import simple_algorithm
 from bongo_alg import bogo_algorithm
 from user_play import user_guess
+from knuth import knuth_algorithm
 
 
 def comp_user_choice():
@@ -38,7 +39,8 @@ def main():
                 algorithm_choice = int(input("Welk algoritme wil je gebruiken?\n"
                                              "1. Simple algorithm\n"
                                              "2. Bogo algorithm\n"
-                                             "3. Exit\n"
+                                             "3. Worst-Case\n"
+                                             "4. Exit\n"
                                              "> "))
 
                 if 1 <= algorithm_choice < 4:
@@ -79,8 +81,12 @@ def main():
         elif algorithm_choice == 2:
             bogo_algorithm(answer)
 
-        # Exit
         elif algorithm_choice == 3:
+            knuth_algorithm(answer)
+
+        # Exit
+        elif algorithm_choice == 4:
+            print("Tot de volgende keer!")
             exit()
 
 
