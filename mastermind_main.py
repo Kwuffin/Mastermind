@@ -2,7 +2,7 @@ import numpy as np
 from simple_alg import simple_algorithm
 from bongo_alg import bogo_algorithm
 from user_play import user_guess
-from knuth import knuth_algorithm
+from worst_case_alg import worst_case_algorithm
 
 
 def comp_user_choice():
@@ -82,7 +82,7 @@ def main():
             bogo_algorithm(answer)
 
         elif algorithm_choice == 3:
-            knuth_algorithm(answer)
+            worst_case_algorithm(answer)
 
         # Exit
         elif algorithm_choice == 4:
